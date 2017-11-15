@@ -1,5 +1,5 @@
 var fs = require('fs');
-var querystring = require('querystring');
+var queryString = require('querystring');
 var path = require('path');
 
 
@@ -33,24 +33,25 @@ function staticFileHandler(request, response, url){
   });
 }
 
-// function endPointHandler(request, response){
-//     var letter = '';
-//     request.on('data', function(chunkofData) {
-//       allTheData += chunkofData;
-//     });
-//     request.on('end', function() {
-//       var convertedData = queryString.parse(allTheData);
-//       console.log(convertedData);
-//       savePost(convertedData);
-//       response.writeHead(308, {
-//         "Location": "/"
-//       });
-//       response.end();
-//     });
-// }
+function endPointHandler(request, response){
+    var letter = '';
+    request.on('data', function(data) {
+      letter += data;
+    });
+    request.on('end', function() {
+      var postLetter = queryString.parse(letter);
+      console.log(postLetter);
+      // savePost(convertedData);
+      // response.writeHead(308, {
+      //   "Location": "/"
+      });
+      // response.end();
+    }
+
 
 
 module.exports = {
 homeHandler,
 staticFileHandler,
+endPointHandler,
 };

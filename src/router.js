@@ -1,4 +1,4 @@
-var {staticFileHandler, homeHandler} = require('./handlers.js');
+var {staticFileHandler, homeHandler, endPointHandler} = require('./handlers.js');
 
 
 function router(request, response, url){

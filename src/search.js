@@ -8,5 +8,7 @@ function wordSearch(letter){
       finalArr.push(arrTwo[i]);
     }
   }
-  return finalArr;
+   return finalArr;
 }
+
+module.exports = wordSearch;
