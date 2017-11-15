@@ -1,6 +1,7 @@
 var fs = require('fs');
-var querystring = require('querystring');
+var queryString = require('querystring');
 var path = require('path');
+var wordSearch = require("./search.js");
 
 
 function homeHandler(request, response){
@@ -33,24 +34,27 @@ function staticFileHandler(request, response, url){
   });
 }
 
-// function endPointHandler(request, response){
-//     var letter = '';
-//     request.on('data', function(chunkofData) {
-//       allTheData += chunkofData;
-//     });
-//     request.on('end', function() {
-//       var convertedData = queryString.parse(allTheData);
-//       console.log(convertedData);
-//       savePost(convertedData);
-//       response.writeHead(308, {
-//         "Location": "/"
-//       });
-//       response.end();
-//     });
-// }
+function endPointHandler(request, response){
+    var letter = '';
+    request.on('data', function(data) {
+      letter += data;
+    });
+    request.on('end', function() {
+      var postLetter = queryString.parse(letter);
+      console.log(postLetter);
+      var newArr = [];
+      for(key in postLetter){
+        newArr.push(key);
+      }
+      console.log(newArr);
+      wordSearch(newArr[0]);
+      });
+    }
+
 
 
 module.exports = {
 homeHandler,
 staticFileHandler,
+endPointHandler,
 };
