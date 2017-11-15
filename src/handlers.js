@@ -1,6 +1,7 @@
 var fs = require('fs');
 var queryString = require('querystring');
 var path = require('path');
+var wordSearch = require("./search.js");
 
 
 function homeHandler(request, response){
@@ -41,11 +42,13 @@ function endPointHandler(request, response){
     request.on('end', function() {
       var postLetter = queryString.parse(letter);
       console.log(postLetter);
-      // savePost(convertedData);
-      // response.writeHead(308, {
-      //   "Location": "/"
+      var newArr = [];
+      for(key in postLetter){
+        newArr.push(key);
+      }
+      console.log(newArr);
+      wordSearch(newArr[0]);
       });
-      // response.end();
     }
 
 
