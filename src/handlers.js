@@ -33,6 +33,22 @@ function staticFileHandler(request, response, url){
   });
 }
 
+// function endPointHandler(request, response){
+//     var letter = '';
+//     request.on('data', function(chunkofData) {
+//       allTheData += chunkofData;
+//     });
+//     request.on('end', function() {
+//       var convertedData = queryString.parse(allTheData);
+//       console.log(convertedData);
+//       savePost(convertedData);
+//       response.writeHead(308, {
+//         "Location": "/"
+//       });
+//       response.end();
+//     });
+// }
+
 
 module.exports = {
 homeHandler,
