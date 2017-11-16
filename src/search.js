@@ -1,6 +1,7 @@
 var wordArray = ["buffy", "angelus", "cordelia", "wesley", "giles", "joyce summers", "dawn"];
 
 var wordSearch = (str) => {
+  console.log(str);
   var string = str.toLowerCase();
   var arrTwo = wordArray.slice(0);
   var finalArr = [];

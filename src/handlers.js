@@ -3,6 +3,16 @@ var queryString = require('querystring');
 var path = require('path');
 var wordSearch = require("./search.js");
 
+function callback (response, result){
+  response.writeHead(200,{'Content-Type': 'text/plain'}, function (error,file){
+    if (error){
+      console.log('write error file word result' + error);
+      return;
+      }
+    });
+    response.end(result.join("/"));
+}
+
 
 function homeHandler(request, response){
   var filePath = path.join(__dirname, '..', 'index.html')
@@ -35,27 +45,22 @@ function staticFileHandler(request, response, url){
 }
 
 function endPointHandler(request, response){
-    var letter = '';
-    request.on('data', function(data) {
-      letter += data;
-    });
-    var newArr = [];
-    request.on('end', function() {
-      var postLetter = queryString.parse(letter);
-      console.log(postLetter);
-      for(key in postLetter){
-        newArr.push(key);
-        }
-    });
-    var result = wordSearch(newArr[0]);
-    response.writeHead(200,{'Content-Type': 'text/plain'}, function (error,file){
-      if (error){
-        console.log('write error file word result' + error);
-          return;
-        }
-    });
-    response.end(result);
+
+
+        var text = request.url.split('*');
+        text = text[1];
+        var result = wordSearch(text);
+        response.writeHead(200,{'Content-Type': 'text/plain'}, function (error,file){
+        if (error){
+            console.log('write error file word result' + error);
+            return;
+            }
+          });
+        response.end(result.join("/"));
     };
+
+
+
 
 
 
