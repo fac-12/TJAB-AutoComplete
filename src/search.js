@@ -1,6 +1,6 @@
 var wordArray = ["buffy", "angelus", "cordelia", "wesley", "giles", "joyce summers", "dawn"];
 
-function wordSearch(str){
+var wordSearch = (str) => {
   var string = str.toLowerCase();
   var arrTwo = wordArray.slice(0);
   var finalArr = [];
@@ -10,7 +10,6 @@ function wordSearch(str){
       finalArr.push(arrTwo[i]);
     }
   }
-
   for (var i = 0; i<finalArr.length; i++){
     var wordSplit = finalArr[i].split(' ');
     for (var j = 0; j<wordSplit.length; j++){

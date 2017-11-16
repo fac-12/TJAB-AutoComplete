@@ -16,3 +16,8 @@ tape('wordSearch results have capitalised first letters', function(t){
   t.deepEquals(search('le'), ['Wesley', 'Giles'], 'wordSearch results have capitalised first letters');
   t.end();
 })
+
+tape('wordSearch returns all items that contain all letters in string, regardless of capitalisation', function(t){
+  t.deepEquals(search('Le'), ['Wesley', 'Giles'], 'wordSearch returns all items that contain all letters in string, regardless of capitalisation');
+  t.end();
+})
