@@ -1,13 +1,22 @@
 var arrayJson = require('./names.json')
 
-var namesArray = arrayJson["charactersNames"];
+var characters = arrayJson["charactersNames"];
+
+var namesArray = (function unCapitalise(arr){
+  var newArr = [];
+  for(var i = 0; i < arr.length; i++){
+    var name = arr[i].split("");
+    name[0] = name[0].toLowerCase();
+    var finalName = name.join("");
+    newArr.push(finalName);
+  }
+   return newArr;
+}(characters));
 
 var wordSearch = (str) => {
-  console.log(str);
   var string = str.toLowerCase();
   // var arrTwo = namesArray.slice(0);
   var finalArr = [];
-  console.log(string);
   for(var i = 0; i < namesArray.length; i++){
     if(namesArray[i].indexOf(string) !== -1 ){
       finalArr.push(namesArray[i]);
@@ -23,6 +32,5 @@ var wordSearch = (str) => {
 }
   return finalArr;
 }
-
 
 module.exports = wordSearch;
