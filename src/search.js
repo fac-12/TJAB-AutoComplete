@@ -1,14 +1,16 @@
-var wordArray = ["buffy", "angelus", "cordelia", "wesley", "giles", "joyce summers", "dawn"];
+var arrayJson = require('./names.json')
+
+var namesArray = arrayJson["charactersNames"];
 
 var wordSearch = (str) => {
   console.log(str);
   var string = str.toLowerCase();
-  var arrTwo = wordArray.slice(0);
+  // var arrTwo = namesArray.slice(0);
   var finalArr = [];
   console.log(string);
-  for(var i = 0; i < arrTwo.length; i++){
-    if(arrTwo[i].indexOf(string) !== -1 ){
-      finalArr.push(arrTwo[i]);
+  for(var i = 0; i < namesArray.length; i++){
+    if(namesArray[i].indexOf(string) !== -1 ){
+      finalArr.push(namesArray[i]);
     }
   }
   for (var i = 0; i<finalArr.length; i++){
