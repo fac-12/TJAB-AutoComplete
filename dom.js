@@ -12,22 +12,23 @@ inputfield.addEventListener('keydown', function(e){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(xhttp.responseText);
+      var name = xhttp.responseText.split("/");
+      console.log(name);
+      updateDom(name);
     }
   };
   xhttp.open("GET", "/endpoint" + "*" + inputtext , true);
   xhttp.send(inputtext);
 }, false);
 
-// function getData() {
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       var response = JSON.parse(xhttp.responsetext);
-//       updateDom();
-//       console.log('working');
-//     }
-//   };
-//   xhttp.open("GET", "/wordresult", true);
-//   xhttp.send();
-// }
+function updateDom(name){
+  var dataList = document.getElementById('dropdown');
+  while(dataList.firstChild){
+    dataList.removeChild(dataList.firstChild);
+  }
+  for(var i = 0; i < name.length; i++){
+    var option = document.createElement('option');
+    option.value = name[i];
+    dataList.appendChild(option);
+  }
+}

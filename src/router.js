@@ -1,4 +1,4 @@
-var {staticFileHandler, homeHandler, endPointHandler} = require('./handlers.js');
+var {staticFileHandler, homeHandler, endPointHandler, apiHandler} = require('./handlers.js');
 
 
 function router(request, response, url){
@@ -10,7 +10,9 @@ function router(request, response, url){
     else if (url.indexOf('/endpoint') !== -1){
     endPointHandler(request, response);
    }
-   else {
+   else if(url === ('/wikiname')){
+     apiHandler(request, response);
+   } else {
     staticFileHandler(request, response, url);
    }
 

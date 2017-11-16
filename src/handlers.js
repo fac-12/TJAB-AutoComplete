@@ -3,17 +3,6 @@ var queryString = require('querystring');
 var path = require('path');
 var wordSearch = require("./search.js");
 
-function callback (response, result){
-  response.writeHead(200,{'Content-Type': 'text/plain'}, function (error,file){
-    if (error){
-      console.log('write error file word result' + error);
-      return;
-      }
-    });
-    response.end(result.join("/"));
-}
-
-
 function homeHandler(request, response){
   var filePath = path.join(__dirname, '..', 'index.html')
   fs.readFile(filePath, function(error, file){
@@ -45,20 +34,21 @@ function staticFileHandler(request, response, url){
 }
 
 function endPointHandler(request, response){
-
-
         var text = request.url.split('*');
         text = text[1];
         var result = wordSearch(text);
-        response.writeHead(200,{'Content-Type': 'text/plain'}, function (error,file){
+        response.writeHead(200,{'Content-Type': 'text/plain'}, function (error){
         if (error){
-            console.log('write error file word result' + error);
+            console.log('endPointHandler ' + error);
             return;
             }
           });
         response.end(result.join("/"));
     };
 
+function apiHandler(request, response){
+
+}
 
 
 
@@ -69,4 +59,5 @@ module.exports = {
 homeHandler,
 staticFileHandler,
 endPointHandler,
+apiHandler,
 };
