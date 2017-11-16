@@ -39,17 +39,24 @@ function endPointHandler(request, response){
     request.on('data', function(data) {
       letter += data;
     });
+    var newArr = [];
     request.on('end', function() {
       var postLetter = queryString.parse(letter);
       console.log(postLetter);
-      var newArr = [];
       for(key in postLetter){
         newArr.push(key);
-      }
-      console.log(newArr);
-      wordSearch(newArr[0]);
-      });
-    }
+        }
+    });
+    var result = wordSearch(newArr[0]);
+    response.writeHead(200,{'Content-Type': 'text/plain'}, function (error,file){
+      if (error){
+        console.log('write error file word result' + error);
+          return;
+        }
+    });
+    response.end(result);
+    };
+
 
 
 

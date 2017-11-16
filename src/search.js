@@ -21,4 +21,5 @@ var wordSearch = (str) => {
   return finalArr;
 }
 
+
 module.exports = wordSearch;
