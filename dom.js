@@ -22,7 +22,6 @@ inputfield.addEventListener('keydown', function(e){
 }, false);
 
 function updateDom(name){
-
   var dataList = document.getElementById('dropdown');
   while(dataList.firstChild){
     dataList.removeChild(dataList.firstChild);

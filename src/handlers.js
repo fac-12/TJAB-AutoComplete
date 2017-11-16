@@ -46,6 +46,9 @@ function endPointHandler(request, response){
         response.end(result.join("/"));
     };
 
+function apiHandler(request, response){
+
+}
 
 
 
@@ -56,4 +59,5 @@ module.exports = {
 homeHandler,
 staticFileHandler,
 endPointHandler,
+apiHandler,
 };
