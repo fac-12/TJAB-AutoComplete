@@ -15,7 +15,7 @@ inputfield.addEventListener('keydown', function(e){
       console.log(xhttp.responseText);
     }
   };
-  xhttp.open("GET", "/endpoint", true);
+  xhttp.open("GET", "/endpoint" + "*" + inputtext , true);
   xhttp.send(inputtext);
 }, false);
 
