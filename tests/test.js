@@ -3,16 +3,16 @@ const search = require('../src/search.js');
 
 
 tape('wordSearch returns and array', function(t){
-  t.equal(Array.isArray(search('buffy')), true, "wordSearch returns an array");
+  t.equal(Array.isArray(search('Buffy')), true, "wordSearch returns an array");
   t.end();
 })
 
 tape('wordSearch returns all items that contain all letters in string', function(t){
-  t.deepEqual(search('le'), ['wesley', 'giles'], 'wordSearch returns all items that contain all letters in string');
+  t.deepEqual(search('le'), ['Wesley', 'Giles'], 'wordSearch returns all items that contain all letters in string');
   t.end();
 })
 
-tape('wordSearch returns items when passed string with uppercase letters', function(t){
-  t.deepEquals(search('Le'), ['wesley', 'giles'], 'wordSearch returns items when passed string with uppercase letters');
+tape('wordSearch results have capitalised first letters', function(t){
+  t.deepEquals(search('le'), ['Wesley', 'Giles'], 'wordSearch results have capitalised first letters');
   t.end();
 })
