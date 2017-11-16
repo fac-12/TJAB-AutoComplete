@@ -13,7 +13,6 @@ inputfield.addEventListener('keydown', function(e){
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var name = xhttp.responseText.split("/");
-      console.log(name);
       updateDom(name);
     }
   };
