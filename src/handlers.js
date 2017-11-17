@@ -34,16 +34,17 @@ function staticFileHandler(request, response, url){
 }
 
 function endPointHandler(request, response){
-        var text = request.url.split('*');
-        text = text[1];
-        var result = wordSearch(text);
-        response.writeHead(200,{'Content-Type': 'text/plain'}, function (error){
+        var text = request.url;
+        const parsed = queryString.parse(text);
+        console.log(parsed['/endpoint']);
+        var result = wordSearch(parsed['/endpoint']);
+        response.writeHead(200,{'Content-Type': 'application/json'}, function (error){
         if (error){
             console.log('endPointHandler ' + error);
             return;
             }
           });
-        response.end(result.join("/"));
+        response.end(JSON.stringify(result));
     };
 
 function apiHandler(request, response){

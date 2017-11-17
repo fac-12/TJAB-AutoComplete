@@ -27,10 +27,14 @@ var wordSearch = (str) => {
     for (var j = 0; j<wordSplit.length; j++){
     wordSplit[j] = wordSplit[j].charAt(0).toUpperCase() + wordSplit[j].slice(1);
   }
-  wordSplit = wordSplit.join(' ');
+  wordSplit = wordSplit.join('');
   finalArr[i] = wordSplit;
 }
-  return finalArr;
+  var nameObj = {
+    "result": finalArr,
+  }
+
+  return nameObj;
 }
 
 module.exports = wordSearch;
