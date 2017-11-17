@@ -1,11 +1,11 @@
 
 var inputfield = document.getElementById('inputfield');
-inputfield.addEventListener('keydown', function(e){
+inputfield.addEventListener('keyup', function(e){
   console.log(e);
   if (e.code.indexOf('Key') !== -1 || e.code.indexOf('Digit') !== -1){
-    var inputtext = inputfield.value + e.key;
+    var inputtext = inputfield.value;
   } else {
-    var inputtext = inputfield.value
+    var inputtext = inputfield.value;
   }
   console.log(inputtext);
   // var inputtext = e.srcElement.value + e.key;
