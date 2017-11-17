@@ -10,12 +10,15 @@
   </head>
   <body>
     <h1 class="heading">Supernatural Beings of the Buffyverse</h1>
+    <div class="flex-container">
     <form class="form" action="/wikiname" method="get" id="the-form" >
         <h2>Search for a Character</h2>
         <input name="firstname" type="text" id="inputfield" list="dropdown">
         <datalist id='dropdown'></datalist>
-        <button type="submit" class="button">Find</button>
+        <button type="submit" class="button" id="submitbutton">Find</button>
     </form>
+    <div id="info"></div>
+  </div>
   </body>
   <script type="text/javascript" src="dom.js"></script>
 </html>
