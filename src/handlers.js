@@ -48,6 +48,7 @@ function endPointHandler(request, response){
             return;
             }
           });
+        console.log(result);
         response.end(JSON.stringify(result));
     };
 
