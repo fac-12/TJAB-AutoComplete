@@ -3,8 +3,8 @@
 
 Team members
 Becky @rb50
-Lex @
-Tunde @
+Lex @devgrrrl
+Tunde @tundeaji1232
 Johanna @johanna-hub
 
 [Project Link](https://mighty-bastion-60114.herokuapp.com/)
