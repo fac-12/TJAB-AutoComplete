@@ -20,10 +20,12 @@ font-size: 3.5rem;
 
 .form{
   text-align: center;
+  width: 40%;
 }
 
 h2 {
   font-size: 1.5rem;
+  padding-right: 13%;
 }
 
 input[type=text] {
@@ -67,7 +69,7 @@ outline: none;
     padding-top: 35%;
   }
   input[type=text] {
-    width: 70%;
+    width: 100%;
     font-size: 1rem;
   }
 
@@ -77,8 +79,16 @@ outline: none;
   flex-direction: column;
   /*justify-content: center;*/
   align-items: center;
+
 }
 
+.form{
+  width: 60%;
+}
+
+.button{
+  margin-top: 2%;
+}
 .info {
   margin: auto;
   /*font-size: 10rem;*/
