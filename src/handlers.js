@@ -7,7 +7,9 @@ function homeHandler(request, response){
   var filePath = path.join(__dirname, '..', 'index.html')
   fs.readFile(filePath, function(error, file){
     if(error){
-      return console.log(error);
+    response.writeHead(500,'Content-Type:text/plain');
+    response.end('server error');
+      // return console.log(error);
     }
     response.writeHead(200, 'Content-Type: text/html');
     response.end(file);
@@ -26,7 +28,9 @@ function staticFileHandler(request, response, url){
 
   fs.readFile(filePath, function(error, file){
     if(error){
-      response.end('error');
+      response.writeHead(404,'Content-type:text/plain');
+      response.end('Error:404, page not found');
+      // response.end('error');
     }
     response.writeHead(200, 'Content-Type: ' + extensionType[extension]);
     response.end(file);
