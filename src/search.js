@@ -8,9 +8,10 @@ var wordSearch = (str) => {
   var finalArr = characters.filter(function(character){
     return character.match(regex);
   })
+  var finalArr2 = finalArr.slice(0, 5);
 
   var nameObj = {
-    "result": finalArr,
+    "result": finalArr2,
   }
   console.log(nameObj);
 
